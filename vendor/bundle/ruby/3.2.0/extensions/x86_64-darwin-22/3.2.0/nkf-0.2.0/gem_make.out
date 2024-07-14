@@ -1,0 +1,19 @@
+current directory: /Users/kataldo/Documents/developer/react_native/garzones/vendor/bundle/ruby/3.2.0/gems/nkf-0.2.0/ext/nkf
+/Users/kataldo/.rvm/rubies/ruby-3.2.1/bin/ruby -I /Users/kataldo/.rvm/rubies/ruby-3.2.1/lib/ruby/3.2.0 extconf.rb
+creating Makefile
+
+current directory: /Users/kataldo/Documents/developer/react_native/garzones/vendor/bundle/ruby/3.2.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240712-3716-v2twj0 sitelibdir\=./.gem.20240712-3716-v2twj0 clean
+
+current directory: /Users/kataldo/Documents/developer/react_native/garzones/vendor/bundle/ruby/3.2.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240712-3716-v2twj0 sitelibdir\=./.gem.20240712-3716-v2twj0
+compiling nkf.c
+linking shared-object nkf.bundle
+ld: warning: ignoring duplicate libraries: '-lruby.3.2'
+
+current directory: /Users/kataldo/Documents/developer/react_native/garzones/vendor/bundle/ruby/3.2.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240712-3716-v2twj0 sitelibdir\=./.gem.20240712-3716-v2twj0 install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 nkf.bundle ./.gem.20240712-3716-v2twj0
+
+current directory: /Users/kataldo/Documents/developer/react_native/garzones/vendor/bundle/ruby/3.2.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240712-3716-v2twj0 sitelibdir\=./.gem.20240712-3716-v2twj0 clean
