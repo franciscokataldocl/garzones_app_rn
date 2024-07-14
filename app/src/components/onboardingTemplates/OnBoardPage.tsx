@@ -11,12 +11,11 @@ import ButtonBlack from '../buttons/ButtonBlack';
 
 interface Props{
     image:string;
-    onPress?:()=>void;
 
 }
-const OnBoardPage = ({image, onPress}:Props) => {
+const OnBoardPage = ({image}:Props) => {
     const { width } = Dimensions.get('window');
-    const { nextPage,currentPage, setCurrentPage, isDone} = useOnboarding();
+    const { nextPage, isDone} = useOnboarding();
     const navigation = useNavigation<NavigationProp<RootStackParams>>();
     
     const handleButtonPress = () => {
@@ -51,13 +50,6 @@ const OnBoardPage = ({image, onPress}:Props) => {
        delay={3000}
        style={[styles.buttonContainer, {justifyContent:'flex-end'}]}>
 
-       
-       {/* <ButtonTransparent 
-       color='white'
-       title='Atras'  
-       icon='arrow-left'
-       direction='left' 
-       onPress={goToPreviousPage}/> */}
 
        <ButtonBlack 
        title={isDone ? 'Finalizar' : 'Siguiente'}  

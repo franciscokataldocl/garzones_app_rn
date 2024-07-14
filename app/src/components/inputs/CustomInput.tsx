@@ -1,5 +1,6 @@
 import React from 'react';
 import { NativeSyntheticEvent, StyleSheet, TextInputFocusEventData } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 import { TextInput } from 'react-native-paper';
 import { Colors } from '../../constants/Colors';
 import { Fonts } from '../../constants/Fonts';
@@ -15,7 +16,12 @@ interface Props{
 }
 const CustomInput = ({label, value,placeholder, onChangeText, handleblur, secureTextEntry,marginBottom=5}:Props) => {
   return (
-    <TextInput
+    <Animatable.View
+    animation="fadeInUp"
+      duration={1500}
+      delay={500}>
+ <TextInput
+    
             label={label}
             value={value}
             onChangeText={onChangeText}
@@ -25,6 +31,8 @@ const CustomInput = ({label, value,placeholder, onChangeText, handleblur, secure
             mode="outlined"
             style={[styles.input, Fonts.fontsm, { marginBottom:marginBottom }]}
           />
+    </Animatable.View>
+   
   )
 }
 

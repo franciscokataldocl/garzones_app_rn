@@ -2,7 +2,8 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth/cordova';
 import { useFormik } from 'formik';
 import React from 'react';
-import { Alert, StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet, View } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 import { ActivityIndicator } from 'react-native-paper';
 import * as Yup from 'yup';
 import ButtonBlack from '../../components/buttons/ButtonBlack';
@@ -53,14 +54,19 @@ const RegisterScreen = () => {
 
   return (
     <View style={[styles.container, {backgroundColor:Colors.white}]}>
-      <Text style={[
+      <Animatable.Text 
+      animation="fadeInUp"
+      duration={1500}
+      delay={300} 
+      
+      style={[
         Fonts.fontxl,
         Fonts.fontweightbold,
         Fonts.fontcolorprimary,
 
         { textAlign: 'center', marginBottom:'20%' }]}>
         Integer eget laoreet lorem, placerat interdum ante
-      </Text>
+      </Animatable.Text>
 
       <View>
       <CustomInput
@@ -91,7 +97,12 @@ const RegisterScreen = () => {
           />
           <Errorinput errors={errors.password} touched={touched.password} />
 
-          <View style={styles.buttonContainer}>
+          <Animatable.View 
+          animation="fadeInUp"
+          duration={1500}
+          delay={800}
+          
+          style={styles.buttonContainer}>
             {isSubmitting ? <ActivityIndicator size="large" color={Colors.primary} /> :
             <ButtonBlack
             title={'Crear cuenta'}  
@@ -104,7 +115,7 @@ const RegisterScreen = () => {
             onPress={()=> navigation.navigate('Login')}
             />
           
-          </View>
+          </Animatable.View>
       </View>
 
     </View>
