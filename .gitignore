@@ -59,3 +59,12 @@ buck-out/
 
 .env
 .env.local
+
+.gradle
+.idea/
+*.iml
+build/
+/local.properties
+.DS_Store
+/captures
+google-services.json
