@@ -1,5 +1,5 @@
+import auth from '@react-native-firebase/auth';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { signInWithEmailAndPassword } from 'firebase/auth/cordova';
 import { useFormik } from 'formik';
 import React from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
@@ -10,7 +10,6 @@ import ButtonBlack from '../../components/buttons/ButtonBlack';
 import ButtonTransparent from '../../components/buttons/ButtonTransparent';
 import CustomInput from '../../components/inputs/CustomInput';
 import Errorinput from '../../components/inputs/Errorinput';
-import { auth } from '../../config/FirebaseConfig';
 import { Colors } from '../../constants/Colors';
 import { Fonts } from '../../constants/Fonts';
 import { RootStackParams } from '../navigator/navigation/Navigation';
@@ -35,9 +34,9 @@ const LoginScreen = () => {
     
     onSubmit: async (values) => {
       try {
-        const response = await signInWithEmailAndPassword(auth, values.email, values.password);
+        const response = await auth().signInWithEmailAndPassword(values.email, values.password);
         const user = response.user;
-        console.log(user);
+        console.log(response);
       } catch (error) {
         Alert.alert('Correo electrónico o contraseña incorrectos');
         

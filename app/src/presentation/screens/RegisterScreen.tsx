@@ -1,5 +1,5 @@
+import auth from '@react-native-firebase/auth';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth/cordova';
 import { useFormik } from 'formik';
 import React from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
@@ -10,10 +10,10 @@ import ButtonBlack from '../../components/buttons/ButtonBlack';
 import ButtonTransparent from '../../components/buttons/ButtonTransparent';
 import CustomInput from '../../components/inputs/CustomInput';
 import Errorinput from '../../components/inputs/Errorinput';
-import { auth } from '../../config/FirebaseConfig';
 import { Colors } from '../../constants/Colors';
 import { Fonts } from '../../constants/Fonts';
 import { RootStackParams } from '../navigator/navigation/Navigation';
+
 
 
 const RegisterScreen = () => {
@@ -39,12 +39,12 @@ const RegisterScreen = () => {
     
     onSubmit: async (values) => {
       try {
-        const response = await createUserWithEmailAndPassword(auth, values.email, values.password);
-        const user = response.user;
-        await updateProfile(user, {
-          displayName: values.username
+        const response = await auth().createUserWithEmailAndPassword(values.email, values.password);
+        let user = response.user;
+        const updatedUser = await user.updateProfile({
+          displayName: values.username,
         });
-        console.log(response)
+        console.log(updatedUser)
       } catch (error) {
         Alert.alert('El correo ya está registrado');
         

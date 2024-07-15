@@ -1,0 +1,110 @@
+
+
+
+
+{
+    "user": "franciscolork@gmail.com",
+    "forms": [
+        [
+            {
+                "form_id": "19e328d1-2379-463d-b33f-e9a6ca19b2f9",
+                "title":"formulario de prueba",
+                "fields": [
+                    {
+                        "position":1,
+                        "name": "total_propina",
+                        "label": "Total propina",
+                        "data_type": "integer",
+                        "html_element": "input",
+                        "operation": false,
+                        "action":"",
+                        "unidad": ""
+    
+                    },
+                    {
+                        "position":2,
+                        "name": "cocina",
+                        "label": "cocina",
+                        "data_type": "integer",
+                        "html_element": "input",
+                        "operation": true,
+                        "action":"+",
+                        "unidad": "%"
+    
+                    },
+                    {
+                        "position":3,
+                        "name": "senorajose",
+                        "label": "señora jose",
+                        "data_type": "integer",
+                        "html_element": "input",
+                        "operation":"-",
+                        "unidad": "clp"
+    
+                    },
+                    {
+                        "position":4,
+                        "name": "garzones",
+                        "label": "garzones",
+                        "data_type": "integer",
+                        "html_element": "input",
+                        "operation":"/",
+                        "unidad": "unidades"
+    
+                    }
+                ]
+            
+            },
+            {
+                "form_id": "19e328d1-2379-463d-b33f-e9a6ca19b2f9",
+                "title":"formulario de prueba",
+                "fields": [
+                    {
+                        "position":1,
+                        "name": "total_propina",
+                        "label": "Total propina",
+                        "data_type": "integer",
+                        "html_element": "input",
+                        "operation": false,
+                        "action":"",
+                        "unidad": ""
+    
+                    },
+                    {
+                        "position":2,
+                        "name": "cocina",
+                        "label": "cocina",
+                        "data_type": "integer",
+                        "html_element": "input",
+                        "operation": true,
+                        "action":"+",
+                        "unidad": "%"
+    
+                    },
+                    {
+                        "position":3,
+                        "name": "senorajose",
+                        "label": "señora jose",
+                        "data_type": "integer",
+                        "html_element": "input",
+                        "operation":"-",
+                        "unidad": "clp"
+    
+                    },
+                    {
+                        "position":4,
+                        "name": "garzones",
+                        "label": "garzones",
+                        "data_type": "integer",
+                        "html_element": "input",
+                        "operation":"/",
+                        "unidad": "unidades"
+    
+                    }
+                ]
+            
+            }
+        ]
+    ]
+    
+}
