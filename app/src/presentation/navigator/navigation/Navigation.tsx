@@ -1,8 +1,8 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import { onAuthStateChanged, User } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import LoadingScreen from '../../../components/Loading/LoadingScreen';
-import { auth } from '../../../config/FirebaseConfig';
+
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import LoginScreen from '../../screens/LoginScreen';
 import OnBoardScreen from '../../screens/OnBoardScreen';
 import RegisterScreen from '../../screens/RegisterScreen';
@@ -22,13 +22,13 @@ export type RootStackParams = {
 
 
   export const Navigation = () =>{
-    const [user,setUser] = useState< User | null>(null);
+    const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
   
     const [loading, setLoading] = useState(true);
   
     useEffect(() => {
-      onAuthStateChanged(auth, (user) => {
-        setUser(user); 
+      return auth().onAuthStateChanged(user => {
+        setUser(user);
         setLoading(false);
       });
     }, []);
