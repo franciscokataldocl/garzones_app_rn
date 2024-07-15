@@ -13,7 +13,7 @@ export type RootStackParams = {
     OnBoard: undefined;
     Login: undefined,
     Register:undefined
-    TabStack:undefined
+    TabStack:{ user: FirebaseAuthTypes.User | null };
   
   }
   const Stack = createStackNavigator<RootStackParams>();
@@ -45,6 +45,7 @@ export type RootStackParams = {
           <Stack.Screen
           name="TabStack"
           component={TabNavigation}
+          initialParams={{ user: user }}
           
         />
         ):(

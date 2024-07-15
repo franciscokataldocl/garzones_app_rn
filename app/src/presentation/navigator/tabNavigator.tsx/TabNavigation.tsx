@@ -1,23 +1,31 @@
+import { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationProp, RouteProp } from '@react-navigation/native';
 import { StyleSheet } from 'react-native';
 import BottomTabLabel from '../../../components/bottomTabLabel/BottomTabLabel';
 import { Colors } from '../../../constants/Colors';
 import HomeScreen from '../../screens/HomeScreen';
 import SettingsScreen from '../../screens/SettingsScreen';
 import TemplatesScreen from '../../screens/TemplatesScreen';
+import { RootStackParams } from '../navigation/Navigation';
 
 
 export type TabStackParams = {
   Home: undefined;
   Templates: undefined,
-  Settings: undefined
+  Settings: { user: FirebaseAuthTypes.User | null };
 
 }
 
-
+type TabNavigationProps = {
+  route: RouteProp<RootStackParams, 'TabStack'>;
+  navigation: NavigationProp<RootStackParams, 'TabStack'>;
+};
 const Tab = createBottomTabNavigator<TabStackParams>();
 
-const TabNavigation = () => {
+const TabNavigation = ({ route }: TabNavigationProps) => {
+  const initialUser = route.params?.user || null;
+
   return (
     <Tab.Navigator initialRouteName='Home'
  
@@ -65,6 +73,7 @@ const TabNavigation = () => {
       <Tab.Screen 
       name="Settings" 
       component={SettingsScreen}
+      initialParams={{ user: initialUser}}
       options={{
         tabBarIcon: ({focused}) => (
           <BottomTabLabel source='cog-outline' size={30} title='Settings' focused={focused}/>
