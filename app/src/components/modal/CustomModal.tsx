@@ -16,10 +16,7 @@ const CustomModal = ({ isOpen, setOpenModal, children }: Props) => {
 
   return (
 
-    <>
-
-
-      <Modal isVisible={isOpen} style={styles.modalContainer}
+    <Modal isVisible={isOpen} style={styles.modalContainer}
         animationInTiming={500}
         animationOutTiming={500}
         backdropTransitionInTiming={600}
@@ -32,11 +29,9 @@ const CustomModal = ({ isOpen, setOpenModal, children }: Props) => {
               <Icon source={'close'} size={40} color={Colors.primary} />
             </Button>
           </View>
+          {children}
         </View>
       </Modal>
-
-
-    </>
 
   )
 }
@@ -49,14 +44,15 @@ const styles = StyleSheet.create({
     borderTopStartRadius: 50,
     borderTopRightRadius: 50,
     backgroundColor: Colors.white,
-    padding: '10%',
+    paddingHorizontal: '0%',
+    paddingTop:'20%',
     position: 'absolute',
     bottom: 0,
     width: '100%',
-    height: '90%'
+    height: '90%',
   },
   modalContainer: {
-    margin: 0
+    margin: 0,
   },
   closeButtonContainer: {
     position: 'absolute',
