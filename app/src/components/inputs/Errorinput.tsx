@@ -5,6 +5,7 @@ import { Fonts } from '../../constants/Fonts';
 interface Props{
     errors?:string;
     touched?:boolean;
+
 }
 
 const Errorinput = ({errors, touched}:Props) => {

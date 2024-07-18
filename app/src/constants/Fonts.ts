@@ -10,7 +10,7 @@ export const Fonts = StyleSheet.create({
         fontSize: 40,
     },
     fontmd:{
-        fontSize: 18,
+        fontSize: 22,
     },
     fontsm:{
         fontSize: 16,
@@ -29,6 +29,12 @@ export const Fonts = StyleSheet.create({
     },
     fontcolorsecondary:{
         color:Colors.secondary
+    },
+    fontcolorgrey:{
+        color:Colors.grey
+    },
+    fontcolorgreylight:{
+        color:Colors.greyLight
     },
     poppinsbold:{
         fontFamily: 'Poppins-Bold'

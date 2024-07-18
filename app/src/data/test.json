@@ -58,6 +58,7 @@
             {
                 "form_id": "19e328d1-2379-463d-b33f-e9a6ca19b2f9",
                 "title":"formulario de prueba",
+                "date_calc": "15-07-2024",
                 "fields": [
                     {
                         "position":1,
@@ -65,6 +66,7 @@
                         "label": "Total propina",
                         "data_type": "integer",
                         "html_element": "input",
+                        "value":40000,
                         "operation": false,
                         "action":"",
                         "unidad": ""
@@ -76,6 +78,7 @@
                         "label": "cocina",
                         "data_type": "integer",
                         "html_element": "input",
+                        "value":5,
                         "operation": true,
                         "action":"+",
                         "unidad": "%"
@@ -87,6 +90,7 @@
                         "label": "señora jose",
                         "data_type": "integer",
                         "html_element": "input",
+                        "value": 2000,
                         "operation":"-",
                         "unidad": "clp"
     
@@ -97,6 +101,7 @@
                         "label": "garzones",
                         "data_type": "integer",
                         "html_element": "input",
+                        "number": 5,
                         "operation":"/",
                         "unidad": "unidades"
     

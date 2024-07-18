@@ -25,7 +25,7 @@ const LoginScreen = () => {
     
   });
 
-  const { handleChange, handleBlur, handleSubmit, values, errors, touched, setFieldValue, isSubmitting } = useFormik({
+  const {handleBlur, handleSubmit, values, errors, touched, setFieldValue, isSubmitting } = useFormik({
     initialValues: {
       email: '',
       password: '',
@@ -34,14 +34,19 @@ const LoginScreen = () => {
     
     onSubmit: async (values) => {
       try {
-        const response = await auth().signInWithEmailAndPassword(values.email, values.password);
-        const user = response.user;
-        console.log(response);
+        const userCredential = await auth().signInWithEmailAndPassword(values.email, values.password);
+        if (userCredential.user) {
+          const { uid, email, displayName, photoURL } = userCredential.user;
+
+          navigation.navigate('TabStack', { user: { uid, email, displayName, photoURL } });
+
+        }
       } catch (error) {
-        Alert.alert('Correo electrónico o contraseña incorrectos');
-        
+        console.error(error);
+        Alert.alert('Error de Inicio de Sesión', 'Correo electrónico o contraseña incorrectos.');
       }
     },
+    
   });
 
   return (
@@ -109,7 +114,7 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   container:{
     paddingHorizontal:'8%',
-    backgroundColor:'white',
+    backgroundColor:Colors.white,
     flex:1,
     justifyContent:'center'
   },
@@ -124,16 +129,4 @@ const styles = StyleSheet.create({
 })
 
 
-  {/* <CustomInput 
-          label='Email' 
-          value={values.email} 
-          onChangeText={text => setFieldValue('email', text)} 
-          />
-          <Errorinput errors={errors.email} touched={touched.email} />
-           <CustomInput 
-          label='Password' 
-          value={values.password} 
-          onChangeText={text => setFieldValue('password', text)} 
-          />
-          <Errorinput errors={errors.password} touched={touched.password} /> */}
 
