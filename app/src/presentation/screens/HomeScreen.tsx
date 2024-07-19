@@ -3,13 +3,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import FloatigButton from '../../components/buttons/fab/FloatingActionButton';
 
 import FormResults from '../../components/forms/formResults/FormResults';
-import FirstForm from '../../components/forms/formsCalculadora/FirstForm';
-import SecondForm from '../../components/forms/formsCalculadora/SecondForm';
 import CustomModal from '../../components/modal/CustomModal';
-import ResultsCard from '../../components/results/ResultsCard';
+
+SecondForm
+
 import PageTitle from '../../components/titles/PageTitle';
 import { Colors } from '../../constants/Colors';
 import { Fonts } from '../../constants/Fonts';
+
+import FirstForm from '../../components/forms/formsCalculadora/FirstForm';
+import SecondForm from '../../components/forms/formsCalculadora/SecondForm';
+import ResultsCard from '../../components/results/ResultsCard';
 import useFormStore from '../../store/forms/formStore';
 
 
