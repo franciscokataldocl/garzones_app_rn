@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import { Colors } from '../../../constants/Colors';
 import { Fonts } from '../../../constants/Fonts';
 import useFormStore from '../../../store/forms/formStore';
-import ButtonBlack from '../../buttons/ButtonBlack';
+import CustomButton from '../../buttons/CustomButton';
 import CustomInput from '../../inputs/CustomInput';
 import Errorinput from '../../inputs/Errorinput';
 import TextHighlight from '../../text/TextHighlight';
@@ -43,7 +43,6 @@ const SecondForm = () => {
         validationSchema: validationschema,
 
         onSubmit: async (values: any) => {
-            console.log(values);
             useFormStore.getState().addField({ name: values.name, unity: values.unity, action: values.action });
         },
     });
@@ -157,7 +156,7 @@ const SecondForm = () => {
 
 
                     <View style={[styles.buttonContainer]}>
-                        <ButtonBlack
+                        <CustomButton
                             title={'Crear'}
                             onPress={handleSubmit} />
                     </View>

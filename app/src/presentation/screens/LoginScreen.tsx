@@ -6,8 +6,8 @@ import { Alert, StyleSheet, View } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { ActivityIndicator } from 'react-native-paper';
 import * as Yup from 'yup';
-import ButtonBlack from '../../components/buttons/ButtonBlack';
 import ButtonTransparent from '../../components/buttons/ButtonTransparent';
+import CustomButton from '../../components/buttons/CustomButton';
 import CustomInput from '../../components/inputs/CustomInput';
 import Errorinput from '../../components/inputs/Errorinput';
 import { Colors } from '../../constants/Colors';
@@ -92,7 +92,7 @@ const LoginScreen = () => {
           delay={800}
           style={styles.buttonContainer}>
             {isSubmitting ? <ActivityIndicator size="large" color={Colors.primary} /> :
-            <ButtonBlack
+            <CustomButton
             title={'Inicias sesión'}  
             onPress={handleSubmit}/>
             

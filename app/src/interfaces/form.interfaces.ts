@@ -12,5 +12,15 @@ export interface Field{
     action:string
 }
 
+export interface Results{
+action:string,
+name:string,
+position:number,
+unity:string,
+value:string
+}
+
+
+
 
 

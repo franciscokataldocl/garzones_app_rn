@@ -6,7 +6,7 @@ import { useOnboarding } from 'react-native-app-onboard';
 import { Colors } from '../../constants/Colors';
 import { Fonts } from '../../constants/Fonts';
 import { RootStackParams } from '../../presentation/navigator/navigation/Navigation';
-import ButtonBlack from '../buttons/ButtonBlack';
+import CustomButton from '../buttons/CustomButton';
 
 
 interface Props{
@@ -51,7 +51,7 @@ const OnBoardPage = ({image}:Props) => {
        style={[styles.buttonContainer, {justifyContent:'flex-end'}]}>
 
 
-       <ButtonBlack 
+       <CustomButton 
        title={isDone ? 'Finalizar' : 'Siguiente'}  
        icon='arrow-right'
        direction='right' 

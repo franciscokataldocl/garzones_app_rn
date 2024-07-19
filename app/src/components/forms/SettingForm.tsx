@@ -5,7 +5,7 @@ import { Alert, StyleSheet, View } from 'react-native';
 import { ActivityIndicator } from 'react-native-paper';
 import * as Yup from 'yup';
 import { Colors } from '../../constants/Colors';
-import ButtonBlack from '../buttons/ButtonBlack';
+import CustomButton from '../buttons/CustomButton';
 import CustomInput from '../inputs/CustomInput';
 import Errorinput from '../inputs/Errorinput';
 
@@ -65,7 +65,7 @@ const SettingForm = () => {
          
           style={styles.buttonContainer}>
             {isSubmitting ? <ActivityIndicator size="large" color={Colors.primary} /> :
-            <ButtonBlack
+            <CustomButton
             title={'Actualizar nombre'}  
             onPress={handleSubmit}/>
             

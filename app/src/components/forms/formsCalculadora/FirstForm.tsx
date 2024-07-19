@@ -8,7 +8,7 @@ import DatePicker from 'react-native-date-picker';
 import * as Yup from 'yup';
 import { Fonts } from '../../../constants/Fonts';
 import useFormStore from '../../../store/forms/formStore';
-import ButtonBlack from '../../buttons/ButtonBlack';
+import CustomButton from '../../buttons/CustomButton';
 import CustomInput from '../../inputs/CustomInput';
 import Errorinput from '../../inputs/Errorinput';
 import TextHighlight from '../../text/TextHighlight';
@@ -44,7 +44,6 @@ const FirstForm = () => {
         validationSchema: validationschema,
         
         onSubmit: async (values:any) => {
-            console.log(values);
             useFormStore.getState().addFormData({ 
                 form_name: values.name, 
                 form_date: values.date, 
@@ -99,7 +98,7 @@ const FirstForm = () => {
                     <Text style={[Fonts.fontcolorgrey, Fonts.fontsm, Fonts.fontweightnormal, Fonts.poppinsregular,
                     { marginTop: '5%', marginBottom: '5%', textAlign: 'center' }]}>El valor inicial corresponde al número desde el cual se comenzará a realizar el calculo <TextHighlight text='(ej: total propina)' /></Text>
                  <View style={[styles.buttonContainer]}>
-                    <ButtonBlack
+                    <CustomButton
                         title={'Crear'}
                         onPress={handleSubmit} />
                 </View>
