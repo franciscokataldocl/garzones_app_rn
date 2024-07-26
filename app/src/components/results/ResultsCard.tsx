@@ -13,7 +13,9 @@ const ResultsCard = ({results}: Props) => {
     console.log('results cards',results)
   return (
     <SafeAreaView style={styles.container}>
-     <FlatList
+    <View>
+
+    <FlatList
         data={results}
         renderItem={({item}) => (
           <View style={styles.renderList}>
@@ -24,6 +26,8 @@ const ResultsCard = ({results}: Props) => {
           </View>
         )}
       />
+
+    </View>
   </SafeAreaView>
   )
 }

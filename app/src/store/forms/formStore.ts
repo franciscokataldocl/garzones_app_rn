@@ -4,6 +4,7 @@ import { Field, Form, Results } from '../../interfaces/form.interfaces';
 const initialFormState: Form = {
   form_name: '',
   form_date: '',
+  form_shift:''
 };
 
 const initialFieldsState: Field[] = [];

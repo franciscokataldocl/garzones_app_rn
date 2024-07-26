@@ -1,6 +1,7 @@
 export interface Form{
     form_name:string,
     form_date:string,
+    form_shift:string,
 
 
 }

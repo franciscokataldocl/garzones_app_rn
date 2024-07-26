@@ -44,7 +44,7 @@ const RegisterScreen = () => {
         const updatedUser = await user.updateProfile({
           displayName: values.username,
         });
-        console.log(updatedUser)
+        // console.log(updatedUser)
       } catch (error) {
         Alert.alert('El correo ya está registrado');
         
