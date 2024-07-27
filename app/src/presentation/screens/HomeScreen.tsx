@@ -22,6 +22,7 @@ import useFormStore from '../../store/forms/formStore';
 const HomeScreen = () => {
 const user = useUser();
 
+    
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [openModalAdd, setOpenModalAdd] = useState<boolean>(false);
   const form = useFormStore((state) => state.form);
