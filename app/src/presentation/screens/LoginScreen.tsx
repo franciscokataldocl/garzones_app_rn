@@ -63,7 +63,7 @@ const LoginScreen = () => {
     
 
         { textAlign: 'center', marginBottom:'20%' }]}>
-        Integer eget laoreet lorem, placerat interdum ante
+       ¡Hacemos los cálculos por ti!
       </Animatable.Text>
 
       <View>

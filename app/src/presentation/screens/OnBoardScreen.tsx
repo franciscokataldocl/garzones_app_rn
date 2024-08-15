@@ -30,11 +30,11 @@ const OnBoardScreen = () => {
         paginationContainerStyle={{ backgroundColor: 'transparent' }}
         showPagination={false}>
         {[
-          <OnBoardPage key="0" image={image1}  />
+          <OnBoardPage key="0" image={image1} title='La forma más rápida y precisa de calcular propinas'  />
           ,
-          <OnBoardPage  key="1" image={image2}/>
+          <OnBoardPage  key="1" image={image2} title='Transforma tu trabajo con nuestra app intuitiva'/>
           ,
-          <OnBoardPage   key="2" image={image3} />
+          <OnBoardPage   key="2" image={image3} title='Di adiós a las cuentas complicadas y a los errores en papel' />
         ]}
 
       </Onboarding>

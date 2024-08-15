@@ -36,6 +36,9 @@ export const Fonts = StyleSheet.create({
     fontcolorgreylight:{
         color:Colors.greyLight
     },
+    fontcolorgreen:{
+        color:Colors.green
+    },
     poppinsbold:{
         fontFamily: 'Poppins-Bold'
     },

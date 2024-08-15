@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native'
 import { Colors } from '../../constants/Colors'
 import { Fonts } from '../../constants/Fonts'
+import storeCalcData from '../../helpers/storeCalcData'
+import useUser from '../../hooks/useUser'
 import { Results } from '../../interfaces/form.interfaces'
 
 interface Props{
@@ -10,10 +12,45 @@ interface Props{
 
 
 const ResultsCard = ({results}: Props) => {
-    console.log('results cards',results)
+    
+    const user = useUser();
+    const [saving, setSaving] = useState(false);
+    const [saved, setSaved] = useState(false);
+    const [message, setMessage] = useState('');
+ 
+
+
+    const handleSubmit = async () => {
+      setSaving(true)
+      const data = {
+        userId: user?.uid || '',
+        results: results
+      };
+     const response = await storeCalcData(data);
+     setSaving(false)
+     if(response.status === 200){
+      setSaved(true)
+      setMessage(response.message)
+     }
+     if(response.status === 400){
+      setSaved(false)
+      setMessage(response.message)
+     }
+     if(response.status === 500){
+      setSaved(false)
+      setMessage(response.message)
+     }
+    
+    
+    }
+
+
+    
   return (
     <SafeAreaView style={styles.container}>
-     <FlatList
+    <View>
+
+    <FlatList
         data={results}
         renderItem={({item}) => (
           <View style={styles.renderList}>
@@ -24,6 +61,23 @@ const ResultsCard = ({results}: Props) => {
           </View>
         )}
       />
+{/* {saved ? <Text style={[Fonts.fontcolorgreen, Fonts.fontmd, Fonts.fontweightbold, { textAlign: 'center' }]}>{message}</Text>: <>
+  {saving ? <ActivityIndicator size="large" color={Colors.primary} /> :
+           <CustomButton
+           title={'Guardar'}
+           onPress={handleSubmit}
+           color={Colors.green}
+         />
+            
+            }
+</>} */}
+
+
+
+
+ 
+
+    </View>
   </SafeAreaView>
   )
 }

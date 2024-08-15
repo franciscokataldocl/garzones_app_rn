@@ -9,10 +9,10 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import { View } from 'react-native-animatable';
+import * as Yup from 'yup';
 import { Colors } from '../../../constants/Colors';
 import { Fonts } from '../../../constants/Fonts';
 import useTransformData from '../../../hooks/useTransformData';
-
 import { Field } from '../../../interfaces/form.interfaces';
 import useFormStore, { FormState } from '../../../store/forms/formStore';
 import CustomButton from '../../buttons/CustomButton';
@@ -39,7 +39,7 @@ const FormResults = ({ fields }: Props) => {
 
   useEffect(() => {
     const values: InitialValues = fields.reduce((acc, field) => {
-      const key = field.name.replace(/\s+/g, '_').toLowerCase();
+      const key = field.name.replace(/\s+/g, ' ').toLowerCase();
       acc[key] = 0;
       return acc;
     }, {} as InitialValues);
@@ -60,6 +60,18 @@ const FormResults = ({ fields }: Props) => {
     PORCENTAJE: '%',
   };
 
+  let validationSchema = Yup.object().shape({});
+  fields.forEach(field => {
+    const validFieldName = field.name.replace(/\s+/g, ' ').toLowerCase();
+    // console.log(field.name)
+    validationSchema = validationSchema.shape({
+      [validFieldName]: Yup.number()
+        .positive("Debe ser un número positivo")
+        .required("Debes ingresar un número")
+        .min(1, "Debes ingresar un valor mayor a 0")
+    });
+  });
+
   const {
     handleBlur,
     handleSubmit,
@@ -70,25 +82,29 @@ const FormResults = ({ fields }: Props) => {
     isSubmitting,
   } = useFormik({
     initialValues: initialValues,
-    // validationSchema: validationschema,
+    validationSchema: validationSchema,
 
     onSubmit: (values: any) => {
       const finalValues = fields
         .map((field) => {
-          const key = field.name.replace(/\s+/g, '_').toLowerCase();
+          const key = field.name.replace(/\s+/g, ' ').toLowerCase();
           return {
             name: field.name,
-            value: values[key]?.toString() || '0', // Convert number to string and provide default value
+            value: values[key]?.toString() || '0', 
             action: field.action,
             unity: field.unity,
             position: field.position,
           };
         })
         .sort((a, b) => a.position - b.position);
-
-      // Call the hook with the final values
       const results = useTransformData(finalValues);
+
+
       addResultsData(results);
+     
+
+
+
 
       // You can also update state or perform other actions with the results here
     },
@@ -96,6 +112,7 @@ const FormResults = ({ fields }: Props) => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      
       <KeyboardAvoidingView
         style={styles.container}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
@@ -104,19 +121,20 @@ const FormResults = ({ fields }: Props) => {
             <View key={index} style={styles.inputContainer}>
               <CustomInput
                 key={index}
-                label={field.name}
-                value={values[field.name.replace(/\s+/g, '_').toLowerCase()]?.toString()} // Convert value to string
+                label={field.name.replace(/\s+/g, ' ').toLowerCase()}
+                value={values[field.name.replace(/\s+/g, ' ').toLowerCase()]?.toString()} // Convert value to string
                 keyboardType="numeric"
                 onChangeText={(text) =>
                   setFieldValue(
-                    field.name.replace(/\s+/g, '_').toLowerCase(),
+                    field.name.replace(/\s+/g, ' ').toLowerCase(),
                     text
                   )
                 }
                 handleblur={handleBlur(
-                  field.name.replace(/\s+/g, '_').toLowerCase()
+                  field.name.replace(/\s+/g, ' ').toLowerCase()
                 )}
               />
+           
               <Text
                 style={[
                   styles.iconText,
@@ -129,18 +147,27 @@ const FormResults = ({ fields }: Props) => {
                 {unitySymbols[field.unity]}
               </Text>
               <Errorinput
-                errors={errors[field.name] as string}
-                touched={!!touched[field.name]}
+                errors={errors[field.name.replace(/\s+/g, ' ').toLowerCase()] as string}
+                touched={!!touched[field.name.replace(/\s+/g, ' ').toLowerCase()]}
               />
               <View style={styles.separator} />
             </View>
           ))}
-        {fields.length > 3 && (
+          
+        {Object.keys(errors).length === 0 && Object.keys(touched).length > 0  && (
+     
+
           <CustomButton
             title={'Calcular'}
             onPress={handleSubmit}
             color={Colors.secondary}
           />
+
+
+
+
+          
+          
         )}
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
