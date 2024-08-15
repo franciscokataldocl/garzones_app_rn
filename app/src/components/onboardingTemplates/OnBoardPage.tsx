@@ -11,9 +11,10 @@ import CustomButton from '../buttons/CustomButton';
 
 interface Props{
     image:string;
+    title:string;
 
 }
-const OnBoardPage = ({image}:Props) => {
+const OnBoardPage = ({image, title}:Props) => {
     const { width } = Dimensions.get('window');
     const { nextPage, isDone} = useOnboarding();
     const navigation = useNavigation<NavigationProp<RootStackParams>>();
@@ -42,7 +43,7 @@ const OnBoardPage = ({image}:Props) => {
             paddingHorizontal: '5%',
             paddingBottom: '20%'
             }]}>
-        Este es un texto con fuente grande y negrita
+      {title}
       </Animatable.Text>
        <Animatable.View 
        animation="fadeInRight"

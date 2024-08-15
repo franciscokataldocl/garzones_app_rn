@@ -39,7 +39,7 @@ const FormResults = ({ fields }: Props) => {
 
   useEffect(() => {
     const values: InitialValues = fields.reduce((acc, field) => {
-      const key = field.name.replace(/\s+/g, '_').toLowerCase();
+      const key = field.name.replace(/\s+/g, ' ').toLowerCase();
       acc[key] = 0;
       return acc;
     }, {} as InitialValues);
@@ -62,7 +62,7 @@ const FormResults = ({ fields }: Props) => {
 
   let validationSchema = Yup.object().shape({});
   fields.forEach(field => {
-    const validFieldName = field.name.replace(/\s+/g, '_').toLowerCase();
+    const validFieldName = field.name.replace(/\s+/g, ' ').toLowerCase();
     // console.log(field.name)
     validationSchema = validationSchema.shape({
       [validFieldName]: Yup.number()
@@ -87,7 +87,7 @@ const FormResults = ({ fields }: Props) => {
     onSubmit: (values: any) => {
       const finalValues = fields
         .map((field) => {
-          const key = field.name.replace(/\s+/g, '_').toLowerCase();
+          const key = field.name.replace(/\s+/g, ' ').toLowerCase();
           return {
             name: field.name,
             value: values[key]?.toString() || '0', 
@@ -121,17 +121,17 @@ const FormResults = ({ fields }: Props) => {
             <View key={index} style={styles.inputContainer}>
               <CustomInput
                 key={index}
-                label={field.name.replace(/\s+/g, '_').toLowerCase()}
-                value={values[field.name.replace(/\s+/g, '_').toLowerCase()]?.toString()} // Convert value to string
+                label={field.name.replace(/\s+/g, ' ').toLowerCase()}
+                value={values[field.name.replace(/\s+/g, ' ').toLowerCase()]?.toString()} // Convert value to string
                 keyboardType="numeric"
                 onChangeText={(text) =>
                   setFieldValue(
-                    field.name.replace(/\s+/g, '_').toLowerCase(),
+                    field.name.replace(/\s+/g, ' ').toLowerCase(),
                     text
                   )
                 }
                 handleblur={handleBlur(
-                  field.name.replace(/\s+/g, '_').toLowerCase()
+                  field.name.replace(/\s+/g, ' ').toLowerCase()
                 )}
               />
            
@@ -147,8 +147,8 @@ const FormResults = ({ fields }: Props) => {
                 {unitySymbols[field.unity]}
               </Text>
               <Errorinput
-                errors={errors[field.name.replace(/\s+/g, '_').toLowerCase()] as string}
-                touched={!!touched[field.name.replace(/\s+/g, '_').toLowerCase()]}
+                errors={errors[field.name.replace(/\s+/g, ' ').toLowerCase()] as string}
+                touched={!!touched[field.name.replace(/\s+/g, ' ').toLowerCase()]}
               />
               <View style={styles.separator} />
             </View>

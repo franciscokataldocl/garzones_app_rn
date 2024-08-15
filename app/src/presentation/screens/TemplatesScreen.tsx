@@ -1,10 +1,11 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { Fonts } from '../../constants/Fonts'
 
 const TemplatesScreen = () => {
   return (
     <View>
-      <Text>TemplatesScreen</Text>
+      <Text style={[Fonts.fontcolorgreylight, Fonts.fontmd, Fonts.fontweightbold, { textAlign: 'center', marginTop:'20%' }]}>Proximamente</Text>
     </View>
   )
 }
