@@ -13,7 +13,7 @@ const BottomTabLabel = ({size, source, title, focused}:Props) => {
   return (
     <View style={styles.labelContainer}>
             <Icon source={source} size={size} color={focused?Colors.secondary:Colors.greyLight}/>
-            <Text style={{color: focused?Colors.secondary:Colors.greyLight}}>{title}</Text>
+            <Text style={[styles.labelText,{color: focused?Colors.secondary:Colors.greyLight}]}>{title}</Text>
           </View>
   )
 }
@@ -24,5 +24,8 @@ const styles = StyleSheet.create({
     labelContainer:{
         justifyContent:'center',
         alignItems:'center',
+    },
+    labelText:{
+      fontSize:11
     }
 })

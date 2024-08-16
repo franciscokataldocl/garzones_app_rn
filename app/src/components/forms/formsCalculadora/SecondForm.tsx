@@ -80,9 +80,15 @@ const SecondForm = () => {
 
 
 
-                    <Text style={[Fonts.fontcolorgrey, Fonts.fontsm, Fonts.fontweightnormal, Fonts.poppinsmedium]}>Acción del campo</Text>
+                    <Text style={[Fonts.fontcolorgrey, 
+                        Fonts.fontsm, 
+                        Fonts.fontweightnormal, 
+                        Fonts.poppinsmedium]}>Acción del campo</Text>
 
                     <SegmentedButtons
+                    density='small'
+                    style={styles.segmentedButtons}
+            
                         value={action}
                         onValueChange={handleDateSelectAction}
                         buttons={[
@@ -199,5 +205,11 @@ const styles = StyleSheet.create({
         position: 'relative',
         bottom: '5%'
 
-    }
+    },segmentedButtons: {
+        // Puedes agregar estilos aquí si lo deseas
+      },
+      labelStyle: {
+        fontSize: 18, // Cambia el tamaño del texto aquí
+      },
+   
 });

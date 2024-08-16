@@ -35,8 +35,8 @@ const TabNavigation = ({ route }: TabNavigationProps) => {
                     left: '3%',
                     right: '3%',
                     backgroundColor: Colors.white,
-                    borderRadius: 15,
-                    height: 90,
+                    borderRadius: 8,
+                    height: 60,
                     ...styles.shadow
                 },
                 headerShown:false,
@@ -50,7 +50,7 @@ const TabNavigation = ({ route }: TabNavigationProps) => {
                 component={HomeScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <BottomTabLabel source='home' size={30} title='Home' focused={focused} />
+                        <BottomTabLabel source='home' size={18} title='Home' focused={focused} />
                     ),
                 }}
             />
@@ -59,7 +59,7 @@ const TabNavigation = ({ route }: TabNavigationProps) => {
                 component={TemplatesScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <BottomTabLabel source='file-document' size={30} title='Templates' focused={focused} />
+                        <BottomTabLabel source='file-document' size={18} title='Templates' focused={focused} />
                     ),
                 }}
             />
@@ -69,7 +69,7 @@ const TabNavigation = ({ route }: TabNavigationProps) => {
                 initialParams={{ user: initialUser }}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <BottomTabLabel source='cog-outline' size={30} title='Settings' focused={focused} />
+                        <BottomTabLabel source='cog-outline' size={18} title='Settings' focused={focused} />
                     ),
                     headerShown:false
                 }}

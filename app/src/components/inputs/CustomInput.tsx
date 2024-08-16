@@ -20,7 +20,7 @@ const CustomInput = ({label, value,placeholder, onChangeText, handleblur, secure
     >
  <TextInput
     
-            label={<Text style={{fontSize: 21, backgroundColor:Colors.white, paddingHorizontal:30}}>{label}</Text>}
+            label={<Text style={{fontSize: 14, backgroundColor:Colors.white, paddingHorizontal:30}}>{label}</Text>}
             value={value}
             onChangeText={onChangeText}
             placeholder={placeholder}

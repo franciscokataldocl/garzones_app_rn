@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
  
     fab: {
       borderRadius:100,
-      margin: 16,
+      margin: 12,
       fontWeight:900,
-      position:'relative'
+      position:'relative',
     },
   })

@@ -20,14 +20,14 @@ const CustomButton = ({title, onPress, icon, direction, border, color}:Props) =>
     <Button
       icon={icon ? icon : ''}
       contentStyle={[styles.contentStyle, { 
-        paddingVertical: 10, 
-        paddingHorizontal:5, 
+        paddingVertical: 2, 
+        paddingHorizontal:2, 
         alignSelf: 'flex-start', 
         
         flexDirection: direction === 'left' ? 'row' : 'row-reverse' }]}
       mode="elevated"
       style={[styles.button, {borderWidth:border ? 2 : 0,borderColor:'white',}]}
-      labelStyle={{ fontSize: 25 }}
+      labelStyle={{ fontSize: 16}}
       onPress={onPress}
       buttonColor={color ? color : Colors.primary}
       textColor={'white'}

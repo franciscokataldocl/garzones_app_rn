@@ -4,16 +4,16 @@ import { Colors } from "./Colors"
 
 export const Fonts = StyleSheet.create({
     fontxl:{
-      fontSize: 50,
+      fontSize: 40,
     },
     fontlg:{
-        fontSize: 40,
+        fontSize: 33,
     },
     fontmd:{
-        fontSize: 22,
+        fontSize: 18,
     },
     fontsm:{
-        fontSize: 16,
+        fontSize: 12,
     },
     fontweightbold:{
         fontWeight: '700'

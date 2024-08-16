@@ -60,6 +60,6 @@ const styles = StyleSheet.create({
     justifyContent:'flex-start'
   },
   logoutcontainer:{
-    marginTop: '90%'
+    marginTop: '10%'
   }
 });
